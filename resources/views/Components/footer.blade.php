@@ -4,3 +4,8 @@
       <small>Copyright &copy; Your Website</small>
     </div>
   </footer>
+
+  <script type="text/javascript" src="{{asset('js/header.js')}}"></script>
+</body>
+
+</html>

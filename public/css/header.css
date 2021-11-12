@@ -75,3 +75,88 @@ body {
     background-color: #4ca1af;
     background-image: linear-gradient(135deg, #4ca1af 0%, #c4e0e5 100%);
 }
+
+
+.contenido{
+    min-height: 100vh;
+}
+/*
+*
+* ==========================================
+* FOR DEMO PURPOSES
+* ==========================================
+*
+*/
+
+.avatar_rounded{
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+}
+/*
+*
+* ==========================================
+* Para los botones del registro
+* ==========================================
+*
+*/
+.button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 80px;
+    background: dodgerblue;
+    border-radius: 6px;
+    transition: all .3s cubic-bezier(0.67, 0.17, 0.40, 0.83);
+  }
+  
+  .button svg {
+    transform: rotate(180deg);
+    transition: all .5s;
+  }
+  
+  .button__circle {
+    width: 120px;
+    height: 120px;
+    background: mediumseagreen;
+    border-radius: 50%;
+    transform: rotate(-180deg);
+  }
+  
+  .button:hover {
+    cursor: pointer;
+  }
+  
+  .tick {
+    color: white;
+    font-size: 2em;
+    transition: all .9s;
+  }
+
+.table{
+    table-layout:fixed;
+    width:100%;
+    word-wrap: break-word;
+}
+
+
+
+.btn-toolbar button:first-child{
+    margin-left:20%;
+}
+
+.btn-toolbar button{
+    margin-right:20%;
+}
+.imagen{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 40%;
+    height: 40%;
+}

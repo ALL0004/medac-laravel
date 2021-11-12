@@ -20,3 +20,20 @@ Route::get('/', function () {
 Route::get('/prueba', function () {
     return view('index');
 });
+Route::get('/usuario', function () {
+    return view('usuario');
+});
+Route::get('/registro', function () {
+    return view('registro');
+});
+Route::get('/resources/views', function () {
+    return view('vista2');
+});
+
+Route::get('/admin', function () {
+    return view('administrador');
+});
+
+Route::get('/sede', function () {
+    return view('sede');
+});
