@@ -60,6 +60,3 @@
     </div>
 
     <x-footer />
-    <script type="text/javascript" src="{{asset('js/header.js')}}"></script>
-</body>
-</html>
