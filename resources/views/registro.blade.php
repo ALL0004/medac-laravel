@@ -43,7 +43,7 @@
 
         </div>
             <!--Meto los botones --> 
-            <div class="btn-toolbar">
+            <div class="btn-group">
                 
                 <button type="button" class="btn btn-light">Confirmar Registro</button>
                 <button type="button" class="btn btn-light">Rechazar Registro</button>

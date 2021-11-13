@@ -11,7 +11,11 @@
                     <p><b>Nº de teléfono: </b></p>
                     <p><b>Localización: </b></p>
                     </br>
-                    <button type="button" class="btn btn-light">Volver atrás</button></br></br>
+                    @if(true) <!-- Si administrador redirige a la vista del administrador-->
+                    <button type="button" class="btn btn-light admin">Volver atrás</button></br></br>
+                    @else
+                    <button type="button" class="btn btn-light usuario">Volver atrás</button></br></br>
+                    @endif
                 </div>
             </header>
         </div>

@@ -46,10 +46,14 @@
                     </div>
                 </table>
             </div>
-            <div class="btn-toolbar">
-            <button type="button" class="btn btn-light">Fichado de entrada</button>
-
-            <button type="button" class="btn btn-light">Fichado de salida</button>
+            <div class="btn-group">
+                @if(true) <!-- condición a introducir en desde controlador-->
+                
+                <button type="button" class="btn btn-light">Fichado de entrada</button>
+                @else
+                <button type="button" class="btn btn-light">Fichado de salida</button>
+                
+                @endif
             </div>
             </header>
         </div>

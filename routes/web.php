@@ -14,11 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/prueba', function () {
-    return view('index');
+    return view('login');
 });
 Route::get('/usuario', function () {
     return view('usuario');
@@ -26,14 +22,9 @@ Route::get('/usuario', function () {
 Route::get('/registro', function () {
     return view('registro');
 });
-Route::get('/resources/views', function () {
-    return view('vista2');
-});
-
 Route::get('/admin', function () {
     return view('administrador');
 });
-
 Route::get('/sede', function () {
     return view('sede');
 });

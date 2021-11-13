@@ -48,7 +48,7 @@
                     </tbody>
                 </div>
             </table>
-            <div class="btn-toolbar">
+            <div class="btn-group">
                 
                 <button type="button" class="btn btn-light">Consultar Fichajes</button>
                 <button type="button" class="btn btn-light">Consultar Sede</button>
