@@ -1,4 +1,6 @@
-
+    <?php
+    session_start();
+    ?>
      <!-- cabecera -->
      <x-header />
      <!-- For demo purpose -->
