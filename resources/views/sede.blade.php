@@ -1,4 +1,6 @@
-
+<?php
+    session_start();
+?>
 <x-header />
 <body>
     <div class="container contenido">
