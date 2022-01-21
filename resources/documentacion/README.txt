@@ -50,3 +50,14 @@ Migrar a phpmyadmin
 	php artisan migrate
 
 ** Hemos modificado la fecha de creación de las tablas para que se creen primero aquellas sin dependencia
+
+
+Modelo
+	-crear Modelo
+	php artisan make:model CentroModel
+	-crear Factoria
+	php artisan make:factory CentroFactory --model=CentroModel
+	-crear Seeder
+	php artisan make:seed CentrosSeeder
+	-Establecer datos de prueba
+	php artisan migrate:refresh --seed
