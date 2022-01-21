@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CentroController;
+use App\Http\Controllers\AsistenciaController;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +19,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login');
 });
+
+Route::get("centros", [CentroController::class, "index"]);
+
+
+Route::get("usuarios", [UsuarioController::class, "index"]);
+
+Route::get("asistencias", [AsistenciaController::class, "index"]);
+
+
+
 Route::get('/usuario', function () {
     return view('usuario');
 });
