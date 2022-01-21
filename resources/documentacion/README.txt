@@ -61,3 +61,11 @@ Modelo
 	php artisan make:seed CentrosSeeder
 	-Establecer datos de prueba
 	php artisan migrate:refresh --seed
+
+
+controlador
+	php artisan make:controller CentroController --resource
+  - php artisan make::controller (nombre del controlador) --resource
+  - importamos el modelo, generamos el constructor. (__construct)
+  - genera un crud del tiron
+  - creamos una carpeta en vistas, y dentro una vista.blade.php

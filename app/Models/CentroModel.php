@@ -16,7 +16,7 @@ class CentroModel extends Model
     protected $table = "sedes";
 
     //id de la tabla
-    protected $primaryKey = 'id_sede';
+    protected $primaryKey='id_sede';
 
     //campos de la tabla
     protected $fillable = ["sector", "localizacion", "created_at", "updated_at"];
