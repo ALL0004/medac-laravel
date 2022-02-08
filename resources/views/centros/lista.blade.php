@@ -14,10 +14,10 @@
                 <td style="border: 1px solid black">{{$sede->sector}}</td>
                 <td style="border: 1px solid black">{{$sede->localizacion}}</td>
                 <td>
-                    <a href="">Aiudame</a>
-                    <a href=""></a>
-                    <a href=""></a>
-                    <a href=""></a>
+                    <a href="/medac-laravel/public/centros/crear">Crear</a>
+                    <a href="/medac-laravel/public/editCentro/{{$sede->id_sede}}">Editar</a>
+                    <a href="/medac-laravel/public/deleteCentro/{{$sede->id_sede}}">Borrar</a>
+                    
                 </td>
             </tr>
             
