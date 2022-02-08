@@ -38,7 +38,7 @@ Bucles
 Estructuras de control	
 	Usados para mostrar el boton de fichaje de salida o de entrada(sin desarollar la condición, se puede comprobar con true/false)
 
--Modelo:
+# Modelo:
 
 ## Migraciones
 	php artisan make:migration create_usuarios_table
