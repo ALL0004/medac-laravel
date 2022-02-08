@@ -33,7 +33,10 @@ class CentroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $centro = new CentroModel($request->all());
+        $centro->save();
+        return redirect() -> action([CentroController::class, 'index']);
+
     }
 
     /**
@@ -55,7 +58,9 @@ class CentroController extends Controller
      */
     public function edit($id)
     {
-        //
+       $centro = $this ->centroModel->obtenerCentroPorCodigo($id);
+       return view("centros.editar", ["sector" => $centro], ["id_sede"=> $id]);
+
     }
 
     /**
@@ -67,7 +72,10 @@ class CentroController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $centro = CentroModel::find($id);
+        $centro->fill($request->all());
+        $centro->save();
+        return redirect()->action([CentroController::class, "index"]);
     }
 
     /**
@@ -78,6 +86,8 @@ class CentroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $centro = CentroModel::find($id);
+        $centro->delete();
+        return redirect()->action([CentroController::class, "index"]);
     }
 }

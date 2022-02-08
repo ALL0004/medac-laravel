@@ -18,7 +18,7 @@ class UsuarioModelFactory extends Factory
             "apellidos" => $this->faker->name(),
             "DNI" => $this->faker->unique()->text(9),
             "email" => $this->faker->email(),
-            "telefono" => 0,
+            "telefono" => $this->faker->bothify('#########'),
             "contraseña" => $this->faker->password(),
             "categoria" => $this->faker->name(),
             "id_sede" => CentroModel::all()->random()->id_sede

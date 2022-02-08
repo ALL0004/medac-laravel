@@ -1,7 +1,7 @@
-Se comentan los pasos realizados desde descargar desde GitHub los ficheros que se han proporcionado comprimidos hasta poder
-acceder a las vistas en el navegador
+ Se comentan los pasos realizados desde descargar desde GitHub los ficheros que se han proporcionado comprimidos hasta poder
+acceder a las vistas en el navegador *
 
-Git:
+# Git:
 	- git init
 	- git remote add origin https://github.com/ALL0004/medac-laravel
 	- git pull origin master
@@ -22,7 +22,7 @@ Generar la clave de Laravel.
 
 ...Detalles del proyecto
 
--Vista:
+# Vista:
 
 Creación
 	composer create-project --prefer-dist laravel/laravel medac-laravel
@@ -40,32 +40,35 @@ Estructuras de control
 
 -Modelo:
 
-Migraciones
+## Migraciones
 	php artisan make:migration create_usuarios_table
 	php artisan make:migration create_sedes_table
 	php artisan make:migration create_asistencias_table
 
-Migrar a phpmyadmin
+## Migrar a phpmyadmin
 
 	php artisan migrate
 
 ** Hemos modificado la fecha de creación de las tablas para que se creen primero aquellas sin dependencia
 
 
-Modelo
+# Modelo
 	-crear Modelo
-	php artisan make:model CentroModel
+		(php artisan make:model CentroModel)
 	-crear Factoria
-	php artisan make:factory CentroFactory --model=CentroModel
+		(php artisan make:factory CentroFactory --model=CentroModel)
 	-crear Seeder
-	php artisan make:seed CentrosSeeder
+		(php artisan make:seed CentrosSeeder)
 	-Establecer datos de prueba
-	php artisan migrate:refresh --seed
+		(php artisan migrate:refresh --seed)
 
 
-controlador
-	php artisan make:controller CentroController --resource
+# Controlador
+	
   - php artisan make::controller (nombre del controlador) --resource
-  - importamos el modelo, generamos el constructor. (__construct)
-  - genera un crud del tiron
-  - creamos una carpeta en vistas, y dentro una vista.blade.php
+		(php artisan make:controller CentroController --resource)
+  - Importamos el modelo, generamos el constructor. (__construct)
+  		(genera un crud en controlador del tiron)
+  - Creamos una carpeta en vistas por cada tabla de nuestro modelo, y dentro una lista.blade.php donde mostramos todos los datos de cada fila
+  - Generamos dos vistas mas, con formularios para el create y update de cada tabla
+  - Enlazamos las rutas entre las funciones del controlador, las vistas generales del modelo y las funciones del CRUD.	
