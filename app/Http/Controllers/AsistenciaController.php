@@ -38,7 +38,9 @@ class AsistenciaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $asistencia = new asistenciaModel ($request -> all());
+        $asistencia-> save();
+        return redirect() -> action ([AsistenciaController:: class,'index']);
     }
 
     /**
@@ -49,7 +51,8 @@ class AsistenciaController extends Controller
      */
     public function show($id)
     {
-        //
+        $registroeditable = $this->asistenciaModel->obtenerAsistenciaPorCodigo($id);
+        return view("asistencias.ver", ["registroeditable" => $registroeditable]);   
     }
 
     /**
@@ -60,7 +63,8 @@ class AsistenciaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $registroeditable = $this->asistenciaModel->obtenerAsistenciaPorCodigo($id);
+            return view("asistencias.editar", ["registroeditable" => $registroeditable]);   
     }
 
     /**
@@ -72,7 +76,11 @@ class AsistenciaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $asistencia = AsistenciaModel::find($id);
+        $asistencia->fill($request->all());
+        $asistencia->save();
+        return redirect()->action([AsistenciaController::class, "index"]);
+    
     }
 
     /**
@@ -83,6 +91,9 @@ class AsistenciaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $asistencia = AsistenciaModel::find($id);
+        $asistencia->delete();
+        return redirect()->action([AsistenciaController::class, "index"]);
+    
     }
 }

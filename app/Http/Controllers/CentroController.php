@@ -47,7 +47,8 @@ class CentroController extends Controller
      */
     public function show($id)
     {
-        //
+        $centro = $this ->centroModel->obtenerCentroPorCodigo($id);
+       return view("centros.ver", ["sector" => $centro], ["id_sede"=> $id]);
     }
 
     /**

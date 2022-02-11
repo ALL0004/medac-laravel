@@ -7,7 +7,11 @@
     <title>sedes</title>
 </head>
 <body>
-    <table style="border: 1px solid black">
+    <p align="center">
+        <a href="./usuarios/crear">Crear</a>
+    </p>
+
+    <table align="center" border="1">
         @foreach ($usuarios as $usuario)
             <tr style="border: 1px solid black">
                 <td style="border: 1px solid black">{{$usuario->id_usuario}}</td>
@@ -20,10 +24,10 @@
                 <td style="border: 1px solid black">{{$usuario->categoria}}</td>
                 <td style="border: 1px solid black">{{$usuario->id_sede}}</td>
                 <td>
-                    <a href="">Aiudame</a>
-                    <a href=""></a>
-                    <a href=""></a>
-                    <a href=""></a>
+                    <a href="./verUsuario/{{$usuario->id_usuario}}">Ver</a>
+                    <a href="./editUsuario/{{$usuario->id_usuario}}">Editar</a>
+                    <a href="./deleteUsuario/{{$usuario->id_usuario}}">Borrar</a>
+                    
                 </td>
             </tr>
             

@@ -34,6 +34,9 @@ Route::get("centros/crear", function () {
     return view("centros.crear");
 });
 
+
+Route::get("verCentro/{id}", [CentroController::class, 'show']);
+
 /**
  * Función para guardar un nuevo centro
  */
@@ -61,10 +64,53 @@ Route::get("deleteCentro/{id}", [CentroController::class, 'destroy']);
  */
 Route::get("usuarios", [UsuarioController::class, "index"]);
 
+Route::get("usuarios/crear", function () {
+    return view("usuarios.crear");
+    });
+
+Route::get("verUsuario/{id}", [UsuarioController::class, 'show']);
+
+Route::post("newUsuario", [UsuarioController::class, 'store']);
+
+Route::get("editUsuario/{id}", [UsuarioController::class, 'edit']);
+
+Route::post("updateUsuario/{id}", [UsuarioController::class, 'update']);
+
+Route::get("deleteUsuario/{id}", [UsuarioController::class, 'destroy']);
+
+
 /**
  * Vista general de todos las asistencias de la aplicación
  */
 Route::get("asistencias", [AsistenciaController::class, "index"]);
+
+
+
+Route::get("asistencias/crear", function() {return view("asistencias.crear");});
+
+Route::get("verAsistencia/{id}", [AsistenciaController::class, 'show']);
+/**
+ * Función para guardar un nuevo asistencias
+ */
+Route::post("newAsistencia", [AsistenciaController::class, 'store']);
+
+/**
+ * Formulario para edición de asistencias
+ */
+Route::get("editAsistencia/{id}", [AsistenciaController::class, 'edit']);
+
+
+/**
+ * Función para editar asistencias
+ */
+Route::post("updateAsistencia/{id}", [AsistenciaController::class, 'update']);
+
+/**
+ * Función para borrar asistencias
+ */
+Route::get("deleteAsistencias/{id}", [AsistenciaController::class, 'destroy']);
+
+
 
 
 /* ------------------ Funciones de usuario ----------------------*/

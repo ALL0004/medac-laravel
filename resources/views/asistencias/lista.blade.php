@@ -7,7 +7,11 @@
     <title>Asistencias</title>
 </head>
 <body>
-    <table style="border: 1px solid black">
+    <p align="center">
+        <a href="./asistencias/crear">Crear</a>
+    </p>
+
+    <table align="center" border="1">
         @foreach ($asistencias as $asistencia)
             <tr style="border: 1px solid black">
                 <td style="border: 1px solid black">{{$asistencia->id_asistencia}}</td>
@@ -17,11 +21,11 @@
                 <td style="border: 1px solid black">{{$asistencia->contraseña}}</td>
                 <td style="border: 1px solid black">{{$asistencia->id_usuario}}</td>
                 <td>
-                    <a href="">Aiudame</a>
-                    <a href=""></a>
-                    <a href=""></a>
-                    <a href=""></a>
+                    <a href="./verAsistencia/{{$asistencia->id_asistencia}}">Ver</a>
+                    <a href="./editAsistencia/{{$asistencia->id_asistencia}}">Editar</a>
+                    <a href="./deleteAsistencia/{{$asistencia->id_asistencia}}">Borrar</a>
                 </td>
+                
             </tr>
             
         @endforeach

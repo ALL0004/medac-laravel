@@ -34,7 +34,9 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $usuario = new UsuarioModel($request->all());
+        $usuario->save();
+        return redirect()->action([UsuarioController::class, 'index']);
     }
 
     /**
@@ -45,7 +47,8 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        $usuario = $this-> usuarioModel->obtenerUsuario($id);
+        return view("usuarios.ver", ["usuario"=>$usuario], ["id_usuario"=>$id]);
     }
 
     /**
@@ -56,7 +59,9 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuario = $this-> usuarioModel->obtenerUsuario($id);
+        return view("usuarios.editar", ["usuario"=>$usuario], ["id_usuario"=>$id]);
+
     }
 
     /**
@@ -68,7 +73,10 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $usuario = UsuarioModel::find($id);
+        $usuario->fill($request->all());
+        $usuario->save();
+        return redirect()->action([UsuarioController::class, "index"]);
     }
 
     /**
@@ -79,6 +87,8 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $usuario = UsuarioModel::find($id);
+        $usuario->delete();
+        return redirect()->action([UsuarioController::class, "index"]);
     }
 }
