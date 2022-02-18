@@ -91,4 +91,16 @@ class CentroController extends Controller
         $centro->delete();
         return redirect()->action([CentroController::class, "index"]);
     }
+
+
+    //--------------------------------------- web service
+
+public function consultarCentroAPI($id){}
+public function insertarCentroAPI(Request $request){} 
+public function actualizarCentroAPI(Request $request, $id){}
+public function borrarCentroAPI($id){}
+
 }
+
+
+

@@ -17,7 +17,7 @@ class AsistenciaController extends Controller
     public function index()
     {
         $asistencias = $this->asistenciaModel->obtenerAsistencia();
-        return view('asistencias.lista', ["asistencias" => $asistencias]);
+        return view('registro', ["asistencias" => $asistencias]);
     }
 
     /**

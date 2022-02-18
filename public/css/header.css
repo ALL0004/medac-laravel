@@ -168,3 +168,14 @@ body {
 .box-shadow{
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
+
+.cuerpo{
+    background-color: whitesmoke;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    border-radius: 10px;
+}
+.letras{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
