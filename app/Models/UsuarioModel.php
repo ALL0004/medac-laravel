@@ -20,4 +20,5 @@ public function obtenerUsuario($cod){
     return UsuarioModel::find($cod);
 }
 
+
 }

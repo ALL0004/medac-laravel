@@ -150,3 +150,8 @@ Route::get('/admin', function () {
 Route::get('/sede', function () {
     return view('sede');
 });
+
+/**
+ * 
+ */
+Route::post('/login',  [UsuarioController::class, 'exists']);

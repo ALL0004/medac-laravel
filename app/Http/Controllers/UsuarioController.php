@@ -13,14 +13,14 @@ class UsuarioController extends Controller
         $this->usuarioModel = $usuario;
     }
 
-    
+
     public function index()
     {
         $usuarios = $this->usuarioModel->obtenerUsuarios();
         return view('usuarios.lista', ["usuarios" => $usuarios]);
     }
 
-    
+
     public function create()
     {
         //
@@ -49,6 +49,11 @@ class UsuarioController extends Controller
     {
         $usuario = $this-> usuarioModel->obtenerUsuario($id);
         return view("usuarios.ver", ["usuario"=>$usuario], ["id_usuario"=>$id]);
+    }
+    public function showapli($id)
+    {
+        $usuario = $this-> usuarioModel->obtenerUsuario($id);
+        return view("/usuario/{id}", ["usuario"=>$usuario], ["id_usuario"=>$id]);
     }
 
     /**
@@ -90,5 +95,24 @@ class UsuarioController extends Controller
         $usuario = UsuarioModel::find($id);
         $usuario->delete();
         return redirect()->action([UsuarioController::class, "index"]);
+    }
+
+    public function exists(Request $request){
+        
+        $usuario = UsuarioModel::where("email", $request->email)->first();
+        
+        if(empty($usuario)){
+            return view("login");
+        }else{
+            if($request->email == $usuario->email && $request->password == $usuario->contraseña){
+                
+                return view("usuarios.ver", ["usuario"=>$usuario], ["id_usuario" => $usuario->id_usuario]);
+            
+            }
+            else{
+                return view("login");
+            }
+        }
+       
     }
 }

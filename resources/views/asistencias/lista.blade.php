@@ -23,7 +23,7 @@
                 <td>
                     <a href="./verAsistencia/{{$asistencia->id_asistencia}}">Ver</a>
                     <a href="./editAsistencia/{{$asistencia->id_asistencia}}">Editar</a>
-                    <a href="./deleteAsistencia/{{$asistencia->id_asistencia}}">Borrar</a>
+                    <a href="./deleteAsistencias/{{$asistencia->id_asistencia}}">Borrar</a>
                 </td>
                 
             </tr>

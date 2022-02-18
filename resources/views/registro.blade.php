@@ -1,5 +1,6 @@
     <?php
     session_start();
+    $id=$_GET['id_asistencia'];
     ?>
      <!-- cabecera -->
      <x-header />
@@ -8,7 +9,7 @@
         <div class="pt-5 ">
             <header class="py-5 mt-5">
                 <h1>Registros de usuario</h1>
-                <button type="button" class="btn btn-light"> Volver Atrás</button>
+                <button type="button" class="btn btn-light" onClick = "document.location.href='/usuario'" > Volver Atrás</button>
             </header>
               <!-- DEsde aqui la tabla -->
               <table class="table table-hover" id="tabla">
@@ -19,9 +20,6 @@
                     <thead class="table-dark">
                         <tr>
                             <td>Id</td>
-                            <td>Nombre</td>
-                            <td>Apellido</td>
-                            <td>Sede</td>
                             <td>Fecha entrada</td>
                             <td>Fecha salida</td>
                             <td>Estado</td>
@@ -30,14 +28,11 @@
                     <tbody>
                         @for($i=0; $i <4; $i++) 
                         <tr style="cursor:pointer">
-                            <td>placeholder</td>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
-                            <td>placeholder</td>
-                            </tr>
+                            <td>{{$asistencia->id_asistencia}}></td>
+                            <td>{{$asistencia->Fecha_entrada}}</td>
+                            <td>{{$asistencia->Fecha_salida}}</td>
+                            <td>{{$asistencia->validacion?"Validada":"No Validada"}}</td>
+                        </tr>
                             @endfor
                     </tbody>
                 </div>
@@ -47,8 +42,8 @@
             <!--Meto los botones --> 
             <div class="btn-group">
                 
-                <button type="button" class="btn btn-light">Confirmar Registro</button>
-                <button type="button" class="btn btn-light">Rechazar Registro</button>
+                <button type="button" class="btn btn-light">Fichar entrada</button>
+                <button type="button" class="btn btn-light">Fichar salida</button>
                
             </div>
             
