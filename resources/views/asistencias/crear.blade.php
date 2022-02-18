@@ -18,8 +18,6 @@
         <input type="datetime-local" name="Fecha_salida">
         <label for="validacion"></label>
         <input type="number" name="validacion" >
-        <label for="contraseña"></label>
-        <input type="text" name="contraseña">
         <label for="id_usuario"></label>
         <input type="text" name="id_usuario">
        

@@ -12,7 +12,7 @@ class AsistenciaModel extends Model
     protected $table = "asistencias";
     protected $primaryKey = 'id_asistencia';
     protected $fillable = ["Fecha_entrada","Fecha_salida","validacion",
-        "created_at","update_at","contraseña","id_usuario"];
+        "created_at","update_at","id_usuario"];
 
     public function obtenerAsistencia(){
         return AsistenciaModel::all();
@@ -20,4 +20,9 @@ class AsistenciaModel extends Model
     public function obtenerAsistenciaPorCodigo($cod){
         return AsistenciaModel::find($cod);
     }
+    public function obtenerPorUsuario($id){
+        return AsistenciaModel::where("id_usuario", $id)->get();
+    }
+    
+    
 }

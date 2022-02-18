@@ -35,4 +35,7 @@ class CentroModel extends Model
         return CentroModel::where("sector", "like", "%". $texto . "%")->take($numero)->get();
     }
 
+     public function obtenerPorUsuario($id){
+        return CentroModel::where("id_usuario", $id)->get();
+    }
 }

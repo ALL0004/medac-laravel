@@ -8,20 +8,36 @@
         <div class="pt-5 ">
             <header class="py-5 mt-5">
                 <div class="imagen">
-                    <img src="https://us.123rf.com/450wm/mahabiru/mahabiru1602/mahabiru160200033/53142408-estrella-3d-resumen-plantilla-logotipo-de-identidad-de-la-empresa-estrella-3d-de-dise%C3%B1o-de-logotipo-.jpg?ver=6" class="rounded" alt="Eniun">
+                    
                     </br>
-                    <h3>Sede: </h3>
-                    <p><b>Email: </b></p>
-                    <p><b>Nº de teléfono: </b></p>
-                    <p><b>Localización:</b></p>
+                    <h3>Sede: {{$sede -> id_sede}}</h3>
+                    <p><b>Sector: {{$sede -> sector}}</b></p>
+                    <p><b>Localización: {{$sede -> localizacion}} </b></p>
+                    
                     </br>
-                    @if(true) <!-- Si administrador redirige a la vista del administrador-->
-                    <!-- <button type="button" class="btn btn-light admin">Volver atrás</button></br></br> -->
-                    <a href="/medac-laravel/public/usuarios">ATRÁS </a>
-                    @else
-                    <button type="button" class="btn btn-light usuario">Volver atrás</button></br></br>
-                    @endif
+                    
+                    <a href="{{URL::asset("usuario/".$_SESSION['usuario']->id_usuario)}}" class="btn btn-light" role="button">Volver a usuario</a>
+                    @if($sede->localizacion!="")
+                    <div class="mapouter">
+                        <div class="gmap_canvas">
+                            <div class="mapouter">
+                                <div class="gmap_canvas">
+                                    <iframe width="400" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q={{$sede->localizacion}}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" >
+                                    </iframe>
+                                    <a href="https://123movies-to.org"></a>
+                                    <br>
+                                    <style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style>
+                                    
+                                    <style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style>
+                                </div>
+                            </div>
+                            
+                  
                 </div>
+                    
+                </div>
+                @endif
+                
             </header>
         </div>
     </div>

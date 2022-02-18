@@ -92,6 +92,13 @@ class CentroController extends Controller
         return redirect()->action([CentroController::class, "index"]);
     }
 
+    public function obtenerPorUsuario($id){
+        $sede = $this->centroModel->obtenerCentroPorCodigo($id);
+       
+        return view("sede", ["sede" => $sede]);
+        
+    }
+
 
     //--------------------------------------- web service
 

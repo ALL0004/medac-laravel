@@ -179,3 +179,8 @@ body {
     margin-left: 5%;
     margin-bottom: 5%;
 }
+
+#map {
+    height: 400px;
+    width: 100%;
+}

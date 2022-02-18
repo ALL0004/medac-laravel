@@ -18,7 +18,6 @@
                 <td style="border: 1px solid black">{{$asistencia->Fecha_entrada}}</td>
                 <td style="border: 1px solid black">{{$asistencia->Fecha_salida}}</td>
                 <td style="border: 1px solid black">{{$asistencia->validacion}}</td>
-                <td style="border: 1px solid black">{{$asistencia->contraseña}}</td>
                 <td style="border: 1px solid black">{{$asistencia->id_usuario}}</td>
                 <td>
                     <a href="./verAsistencia/{{$asistencia->id_asistencia}}">Ver</a>

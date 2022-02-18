@@ -17,10 +17,9 @@ class CreateAsistenciasTable extends Migration
             Schema::create ('asistencias', function (Blueprint $table){
                 $table->bigIncrements('id_asistencia');
                 $table->timestamp('Fecha_entrada')->default(DB::raw('CURRENT_TIMESTAMP'));
-                $table->timestamp('Fecha_salida')->default(DB::raw('CURRENT_TIMESTAMP'));
+                $table->timestamp('Fecha_salida')->default(DB::raw('CURRENT_TIMESTAMP'))->nullable()->default(null);
                 $table->boolean('validacion');
                 $table->timestamps();
-                $table->string('contraseña',30)->nullable(false);
                 $table->unsignedBigInteger('id_usuario');
                 $table->foreign('id_usuario')->references('id_usuario')->on('usuario')->onDelete ('cascade');
             });
