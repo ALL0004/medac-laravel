@@ -1,6 +1,6 @@
     <?php
     session_start();
-    $id=$_GET['id_asistencia'];
+    
     ?>
      <!-- cabecera -->
      <x-header />
@@ -9,7 +9,7 @@
         <div class="pt-5 ">
             <header class="py-5 mt-5">
                 <h1>Registros de usuario</h1>
-                <button type="button" class="btn btn-light" onClick = "document.location.href='/usuario'" > Volver Atrás</button>
+                <a href={{URL::asset("usuario/".$_SESSION['usuario']->id_usuario)}} class="btn btn-light" role="button">Volver a usuario</a>
             </header>
               <!-- DEsde aqui la tabla -->
               <table class="table table-hover" id="tabla">
@@ -26,14 +26,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @for($i=0; $i <4; $i++) 
+                        @foreach($asistencias as $asistencia) 
                         <tr style="cursor:pointer">
-                            <td>{{$asistencia->id_asistencia}}></td>
-                            <td>{{$asistencia->Fecha_entrada}}</td>
-                            <td>{{$asistencia->Fecha_salida}}</td>
-                            <td>{{$asistencia->validacion?"Validada":"No Validada"}}</td>
+                            <td>{{$asistencia -> id_asistencia}}</td>
+                            <td>{{$asistencia -> Fecha_entrada}}</td>
+                            <td>{{$asistencia -> Fecha_salida}}</td>
+                            <td>{{$asistencia -> validacion}}</td>
                         </tr>
-                            @endfor
+                            @endforeach
                     </tbody>
                 </div>
             </table>
@@ -41,22 +41,20 @@
         </div>
             <!--Meto los botones --> 
             <div class="btn-group">
-                
-                <button type="button" class="btn btn-light">Fichar entrada</button>
-                <button type="button" class="btn btn-light">Fichar salida</button>
-               
+                @if (!$asistencia->Fecha_salida==null)
+                    
+                <a href={{URL::asset("ficharEntrada/".$_SESSION['usuario']->id_usuario)}} class="btn btn-light" role="button">Fichar entrada</a>
+                @else
+                <a href={{URL::asset("ficharSalida/".$_SESSION['usuario']->id_usuario)}} class="btn btn-light" role="button">Fichar salida</a>
+                @endif
+              
             </div>
             
       
             
            
 	</div>
-    <div class="button">
-	            <div class="container">
-		            <div class="tick">
-		            </div>
-	            </div>
-            </div>
+    
 </div>
             
     </div>

@@ -102,17 +102,20 @@ class UsuarioController extends Controller
         $usuario = UsuarioModel::where("email", $request->email)->first();
         
         if(empty($usuario)){
-            return view("login");
+            return view("login", ["error" => 1]);
         }else{
             if($request->email == $usuario->email && $request->password == $usuario->contraseña){
                 
-                return view("usuarios.ver", ["usuario"=>$usuario], ["id_usuario" => $usuario->id_usuario]);
+                return view("usuario", ["usuario"=>$usuario], ["id_usuario" => $usuario->id_usuario]);
             
             }
             else{
-                return view("login");
+                return view("login", ["error" => 1]);
             }
         }
-       
+    }
+    public function cerrar(){
+      
+        return view("cerrar");
     }
 }

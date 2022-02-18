@@ -11,7 +11,6 @@
     <p>Entrada: {{$registroeditable->Fecha_entrada}}</p>
     <p>Salida: {{$registroeditable->Fecha_salida}}</p>
     <p>Validación: {{$registroeditable->validacion?"Validada":"No Validada"}}</p>
-    <p>Contraseña: {{$registroeditable->contraseña}}</p>
     <p>Usuario: {{$registroeditable->id_usuario}}</p>
     <a href="/medac-laravel/public/asistencias">ATRÁS </a>
 </body>

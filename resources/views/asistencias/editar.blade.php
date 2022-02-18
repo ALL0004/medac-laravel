@@ -18,8 +18,7 @@
         <input type="datetime-local" name="Fecha_salida" value="{{ date('Y-m-d\Th:m:s', strtotime($registroeditable->Fecha_salida)) }}">
         <label for="id_sede"></label>
         <input type="number" name="validacion" value="{{ $registroeditable ->validacion}}">
-        <label for="contraseña"></label>
-        <input type="text" name="contraseña" value="{{ $registroeditable->contraseña }}">
+        
         <label for="id_usuario"></label>
         <input type="text" name="id_usuario" value="{{ $registroeditable->id_usuario }}">
 

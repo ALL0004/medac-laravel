@@ -12,6 +12,11 @@
 
         <div class="row justify-content-center col-auto bg-light p-5 text-center  border rounded box-shadow ">
             <div class="col-md-6 col-md-offset-5">
+                    @if(isset($error))
+                        <div class="alert alert-warning" role="alert">
+                            El usuario o la contraseña son incorrectos
+                        </div>
+                    @endif
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <form action="{{ url('/login') }}" method="POST">

@@ -78,6 +78,7 @@ Route::post("updateUsuario/{id}", [UsuarioController::class, 'update']);
 
 Route::get("deleteUsuario/{id}", [UsuarioController::class, 'destroy']);
 
+Route::get("cerrar" , [UsuarioController::class, 'cerrar']);
 
 /**
  * Vista general de todos las asistencias de la aplicación
@@ -126,16 +127,22 @@ Route::get('/', function () {
 /**
  * Vista de perfil de usuario
  */
+   
+Route::get('/usuario/{id}', function () {
+    return view('usuario' , ["usuario"=>""], ["id_usuario"=>""]);
+});
+
 Route::get('/usuario', function () {
-    return view('usuario');
+    return view('usuario' , ["usuario"=>$usuario], ["id_usuario" => $usuario->id_usuario]);
 });
 
 /**
  * Vista de fichajes/asistencias del usuario
  */
-Route::get('/registro', function () {
-    return view('registro');
-});
+Route::get('/registro/{id}', [AsistenciaController::class, 'obtenerPorUsuario']);
+
+Route::get('/ficharEntrada/{id}', [AsistenciaController::class, 'fichajeEntrada']);
+Route::get('/ficharSalida/{id}', [AsistenciaController::class, 'fichajeSalida']);
 
 /**
  * Vista del perfíl de administrador
@@ -147,9 +154,10 @@ Route::get('/admin', function () {
 /**
  * Vista del la sede seleccionada
  */
-Route::get('/sede', function () {
-    return view('sede');
-});
+Route::get('/sede/{id}', [CentroController::class, 'obtenerPorUsuario' ]);
+
+
+
 
 /**
  * 

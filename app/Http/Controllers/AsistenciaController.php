@@ -96,4 +96,37 @@ class AsistenciaController extends Controller
         return redirect()->action([AsistenciaController::class, "index"]);
     
     }
+
+
+    public function obtenerPorUsuario($id){
+        $asistencias = $this->asistenciaModel->obtenerPorUsuario($id);
+       
+        return view("registro", ["asistencias" => $asistencias]);
+        
+    }
+
+    public function fichajeSalida($id)
+    {
+        $asistencias = $this->asistenciaModel->obtenerPorUsuario($id);
+        $asistencia = $asistencias->last();
+        $asistencia->Fecha_salida = date('Y-m-d H:i:s');
+        $asistencia->save();
+        $asistencias = $this->asistenciaModel->obtenerPorUsuario($id);
+        return view ("registro", ["asistencias" => $asistencias]);
+            
+    }
+    public function fichajeEntrada($id)
+    {
+        
+        $asistencia = new AsistenciaModel();
+        $asistencia->id_usuario = $id;
+        $asistencia->Fecha_entrada = date('Y-m-d H:i:s');
+        $asistencia->Fecha_salida =  null;
+        $asistencia->validacion = 0;
+        $asistencia-> save();
+        $asistencias = $this->asistenciaModel->obtenerPorUsuario($id);
+        return view('registro', ["asistencias"=> $asistencias]);
+        
+    }
+
 }

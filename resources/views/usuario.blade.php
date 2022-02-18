@@ -1,5 +1,13 @@
 <?php
     session_start();
+    if(isset($usuario) && !isset($_SESSION["usuario"])){
+        
+        $_SESSION["usuario"]=$usuario;
+        $x = "hola";
+    }else{
+        
+        $x = "adios";
+    }
 ?>
 
     <x-header />
@@ -9,16 +17,15 @@
             <header class="py-5 mt-5">
 
             <a href="javascript:;" class="avatar avatar-xl rounded-circle">
-            <img class="avatar_rounded" alt="Image placeholder" src="img/avatar.png">
+            <img class="avatar_rounded" alt="Image placeholder" src="{{URL::asset('img/avatar.png')}}">
             </a>
                 <div class="container">                 
                         <div class="cuerpo">
                             <div class="letras">
                                 <h3>Usuario: </h3>
-                                    <p><b>Nombre y apellidos: </b></p>
-                                    <p><b>Email: </b></p>
-                                    <p><b>Nº de teléfono: </b></p>
-                                    <p><b>Sede: </b></p>
+                                    <p><b>Nombre y apellidos: {{$_SESSION['usuario']->nombre}} {{$_SESSION['usuario']->apellidos}}</b></p>
+                                    <p><b>Email: {{$_SESSION['usuario']->email}}</b></p>
+                                    <p><b>Nº de teléfono: {{$_SESSION['usuario']->telefono}}</b></p>
                                 </div>
                         </div>
                 </div>
@@ -26,15 +33,13 @@
                 
             <div class="btn-group">
 
-            <button type="button" class="btn btn-light">Cerrar sesión</button></br></br>
+            <a href ="{{URL::asset('cerrar')}}" class="btn btn-light" role="button">Cerrar sesión</a>
 
-                @if(true) <!-- condición a introducir en desde controlador-->
+            <a href="{{URL::asset("sede/".$_SESSION['usuario']->id_usuario)}}" class="btn btn-light" role="button">Ver centro</a>
+   
+            <a href="{{URL::asset("registro/".$_SESSION['usuario']->id_usuario)}}" class="btn btn-light" role="button">Fichajes</a>
+
                 
-                <button type="button" class="btn btn-light">Fichado de entrada</button>
-                @else
-                <button type="button" class="btn btn-light">Fichado de salida</button>
-                
-                @endif
             </div>
             </header>
         </div>
