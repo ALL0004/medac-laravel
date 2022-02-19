@@ -105,9 +105,12 @@ class UsuarioController extends Controller
             return view("login", ["error" => 1]);
         }else{
             if($request->email == $usuario->email && $request->password == $usuario->contraseña){
-                
-                return view("usuario", ["usuario"=>$usuario], ["id_usuario" => $usuario->id_usuario]);
-            
+               
+                if($usuario->categoria){
+                    return view("administrador", ["usuario"=>$usuario], ["id_usuario" => $usuario->id_usuario]);
+                }else{
+                    return view("usuario", ["usuario"=>$usuario], ["id_usuario" => $usuario->id_usuario]);
+                }
             }
             else{
                 return view("login", ["error" => 1]);

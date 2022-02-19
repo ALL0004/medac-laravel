@@ -20,7 +20,7 @@ class UsuarioModelFactory extends Factory
             "email" => $this->faker->email(),
             "telefono" => $this->faker->bothify('#########'),
             "contraseña" => $this->faker->password(),
-            "categoria" => $this->faker->name(),
+            "categoria" => $this->faker->boolean(false),
             "id_sede" => CentroModel::all()->random()->id_sede
         ];
     }

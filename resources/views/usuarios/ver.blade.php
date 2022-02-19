@@ -16,7 +16,7 @@
    <p>Telefono: {{$usuario->telefono}}</p>
    <p>Contraseña: {{$usuario->contraseña}}</p>
    <p>Categoria: {{$usuario->categoria}}</p>
-   <p>Usuario: {{$usuario->id_sede}}</p>
+   <p>Centro: {{$usuario->id_sede}}</p>
     <a href="/medac-laravel/public/usuarios">ATRÁS </a>
 </body>
 </html>

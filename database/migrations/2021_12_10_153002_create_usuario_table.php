@@ -23,7 +23,7 @@ class CreateUsuarioTable extends Migration
                 $table->string('email');
                 $table->bigInteger('telefono');
                 $table->string('contraseña')->nullable(false);           
-                $table->string('categoria')->nullable(false);
+                $table->boolean('categoria')->nullable(false);
                 $table->unsignedBigInteger('id_sede');
                 $table->foreign('id_sede')->references('id_sede')->on('sedes')->onDelete('cascade');
             });

@@ -3,7 +3,7 @@
     if(isset($usuario) && !isset($_SESSION["usuario"])){
         
         $_SESSION["usuario"]=$usuario;
-        $x = "hola";
+       
     }else{
         
         $x = "adios";
@@ -35,7 +35,7 @@
 
             <a href ="{{URL::asset('cerrar')}}" class="btn btn-light" role="button">Cerrar sesión</a>
 
-            <a href="{{URL::asset("sede/".$_SESSION['usuario']->id_usuario)}}" class="btn btn-light" role="button">Ver centro</a>
+            <a href="{{URL::asset("sede/".$_SESSION['usuario']->id_sede)}}" class="btn btn-light" role="button">Ver centro</a>
    
             <a href="{{URL::asset("registro/".$_SESSION['usuario']->id_usuario)}}" class="btn btn-light" role="button">Fichajes</a>
 

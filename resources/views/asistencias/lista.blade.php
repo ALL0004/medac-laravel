@@ -8,6 +8,10 @@
 </head>
 <body>
     <p align="center">
+        <a href={{URL::asset("admin")}} class="btn btn-light" role="button">Volver a administrador</a>
+
+    </p>
+    <p align="center">
         <a href="./asistencias/crear">Crear</a>
     </p>
 
