@@ -7,6 +7,12 @@
     <title>sedes</title>
 </head>
 <body>
+
+    <p align="center">
+        <a href={{URL::asset("admin")}} class="btn btn-light" role="button">Volver a administrador</a>
+
+    </p>
+
     <p align="center">
         <a href="./usuarios/crear">Crear</a>
     </p>

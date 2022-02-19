@@ -13,7 +13,7 @@ class CentroModelFactory extends Factory
     {
         return [
             "sector" => $this->faker->name(),
-            "localizacion" => $this->faker->name()
+            "localizacion" => ""
         ];
     }
 }
