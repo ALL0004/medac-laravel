@@ -9,8 +9,6 @@
 <body>
     <form action="{{url('newUsuario')}}" method="post">
         @csrf
-        <label for="id_usuario">ID</label>
-        <input type="text" name="id_usuario">
         <label for="nombre">Nombre</label>
         <input type="text" name="nombre">
         <label for="apellidos">Apellidos</label>

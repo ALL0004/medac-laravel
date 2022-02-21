@@ -83,13 +83,13 @@ Route::get("cerrar" , [UsuarioController::class, 'cerrar']);
 /**
  * Vista general de todos las asistencias de la aplicación
  */
-Route::get("asistencias", [AsistenciaController::class, "index"]);
+Route::get("asistencias", [AsistenciaController::class, "index"]);//vamos al controlador al index
+    //lo que el usuario pone en la url
 
 
+Route::get("asistencias/crear", function() {return view("asistencias.crear");});//retornamos la vista crear
 
-Route::get("asistencias/crear", function() {return view("asistencias.crear");});
-
-Route::get("verAsistencia/{id}", [AsistenciaController::class, 'show']);
+Route::get("verAsistencia/{id}", [AsistenciaController::class, 'show']);//retornamos el show del controlador
 /**
  * Función para guardar un nuevo asistencias
  */
@@ -121,6 +121,13 @@ Route::get("deleteAsistencias/{id}", [AsistenciaController::class, 'destroy']);
  * Vista principal, Login a la aplicación
  */
 Route::get('/', function () {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    if(isset($_SESSION["usuario"])){
+        return view('usuario' , ["usuario"=>$_SESSION["usuario"]], ["id_usuario" => $_SESSION["usuario"]->id_usuario]);
+    }
+    
     return view('login');
 });
 

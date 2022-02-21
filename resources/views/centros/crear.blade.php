@@ -10,11 +10,9 @@
     
     <form action="{{url('newCentro')}}" method="post">
         @csrf
-        <label for="id_sede"></label>
-        <input type="text" name="id_sede">
-        <label for="sector"></label>
+        <label for="sector">Sector</label>
         <input type="text" name="sector">
-        <label for="localizacion"></label>
+        <br><label for="localizacion">Localizacion</label>
         <input type="text" name="localizacion">
         <input type="submit" >
     </form>

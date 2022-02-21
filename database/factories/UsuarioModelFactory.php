@@ -13,7 +13,9 @@ class UsuarioModelFactory extends Factory
     public function definition()
     {
         return [
-            
+            /**
+             * faker es una libreria php que nos da la facilidad para generar datos de prueba
+             */
             "nombre" => $this->faker->name(),
             "apellidos" => $this->faker->name(),
             "DNI" => $this->faker->unique()->text(9),

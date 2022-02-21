@@ -7,6 +7,9 @@ use App\Models\UsuarioModel;
 
 class UsuarioController extends Controller
 {
+    /**
+     * propiedad que usamos para establecer un usuario dentro de nuestro controlador
+     */
     protected $usuarioModel;
 
     public function __construct(UsuarioModel $usuario){

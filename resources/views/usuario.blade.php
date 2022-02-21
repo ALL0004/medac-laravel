@@ -1,12 +1,14 @@
 <?php
+    if (session_status() === PHP_SESSION_NONE) {
     session_start();
+}
     if(isset($usuario) && !isset($_SESSION["usuario"])){
         
         $_SESSION["usuario"]=$usuario;
        
     }else{
         
-        $x = "adios";
+        
     }
 ?>
 
@@ -32,7 +34,9 @@
 
                 
             <div class="btn-group">
-
+                <!-- La redireccion por href se realiza a traves de los helppers de laravel
+            que lo que nos permiten es que la ruta que estamos usando al redireccionar sea consistentes y relativas
+        a nuestro proyecto en lugar de que aparezca la cabecera del navegador -->
             <a href ="{{URL::asset('cerrar')}}" class="btn btn-light" role="button">Cerrar sesión</a>
 
             <a href="{{URL::asset("sede/".$_SESSION['usuario']->id_sede)}}" class="btn btn-light" role="button">Ver centro</a>

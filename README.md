@@ -1,4 +1,4 @@
- Se comentan los pasos realizados desde descargar desde GitHub los ficheros que se han proporcionado comprimidos hasta poder
+99 Se comentan los pasos realizados desde descargar desde GitHub los ficheros que se han proporcionado comprimidos hasta poder
 acceder a las vistas en el navegador *
 
 # Git:

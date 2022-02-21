@@ -10,15 +10,14 @@
     
     <form action="{{url('newAsistencia')}}" method="post">
         @csrf
-        <label for="id_asistencia"></label>
-        <input type="text" name="id_asistencia">
-        <label for="Fecha_entrada"></label>
+        
+        <label for="Fecha_entrada">Fecha Entrada</label>
         <input type="datetime-local" name="Fecha_entrada">
-        <label for="Fecha_salida"></label>
+        <label for="Fecha_salida">Fecha salida</label>
         <input type="datetime-local" name="Fecha_salida">
-        <label for="validacion"></label>
+        <label for="validacion">Validacion</label>
         <input type="number" name="validacion" >
-        <label for="id_usuario"></label>
+        <label for="id_usuario">ID Usuario</label>
         <input type="text" name="id_usuario">
        
         <input type="submit" >

@@ -7,12 +7,16 @@ use App\Models\CentroModel;
 
 class CentroController extends Controller
 {
+
    protected $centroModel;
 
     public function __construct(CentroModel $sede){
         $this->centroModel = $sede;
     }
 
+    /**
+     * funcion que muestra la vista
+     */
     public function index()
     {
         $centros = $this->centroModel->obtenerCentros();
@@ -35,7 +39,7 @@ class CentroController extends Controller
     {
         $centro = new CentroModel($request->all());
         $centro->save();
-        return redirect() -> action([CentroController::class, 'index']);
+        return redirect() -> action([CentroController::class, 'index']);// hace una accion al centro controller y llama a index 
 
     }
 

@@ -8,7 +8,7 @@ use App\Models\CentroModel;
 class CentrosSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeds.mete los datos en la base de datos
      *
      * @return void
      */
