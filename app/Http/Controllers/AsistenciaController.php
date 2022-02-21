@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\AsistenciaModel;
 use App\Models\UsuarioModel;
+/**
+ * Clase controlador, crea un objeto que va a tener métodos asociados.
+ */
 class AsistenciaController extends Controller
 {
     protected $asistenciaModel;
@@ -13,7 +16,10 @@ class AsistenciaController extends Controller
         $this->asistenciaModel = $asistencia;
         
     }
-
+    /**
+     * Método que devuelve la vista asistencias.lista 
+     * vista visible para el administrador
+     */
     public function index()
     {
         $asistencias = $this->asistenciaModel->obtenerAsistencia();
@@ -31,12 +37,12 @@ class AsistenciaController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Método para crear una nueva asistencia
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request)//interactuar con la peticion HTTP
     {
         $asistencia = new asistenciaModel ($request -> all());
         $asistencia-> save();
@@ -44,7 +50,7 @@ class AsistenciaController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * mostrar un registro asistencia en funcion de una id
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -56,7 +62,7 @@ class AsistenciaController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Función para editar un registro de asistencia/fichajes, seleccionado por id
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -68,7 +74,7 @@ class AsistenciaController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Updatea los cambios producidos en el edit
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -84,7 +90,7 @@ class AsistenciaController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina un registro en específico a partir del id
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -97,7 +103,9 @@ class AsistenciaController extends Controller
     
     }
 
-
+    /**
+     * Obtenemos un registro asistencia a partir de un id
+     */
     public function obtenerPorUsuario($id){
         $asistencias = $this->asistenciaModel->obtenerPorUsuario($id);
        
@@ -105,29 +113,37 @@ class AsistenciaController extends Controller
         
     }
 
+    /**
+     * Funcion implementada para el boton de de fichar salida
+     * 
+     */
     public function fichajeSalida($id)
     {
+        $asistencias = $this->asistenciaModel->obtenerPorUsuario($id);//obtiene el usuario
+        $asistencia = $asistencias->last();//su ultima asistencia
+        $asistencia->Fecha_salida = date('Y-m-d H:i:s');//asigno fecha actual en formato seleccionado
+        $asistencia->save();//guardo en la bd
         $asistencias = $this->asistenciaModel->obtenerPorUsuario($id);
-        $asistencia = $asistencias->last();
-        $asistencia->Fecha_salida = date('Y-m-d H:i:s');
-        $asistencia->save();
-        $asistencias = $this->asistenciaModel->obtenerPorUsuario($id);
-        return view ("registro", ["asistencias" => $asistencias]);
+        return view ("registro", ["asistencias" => $asistencias]);//muestro registro de nuevo
             
     }
+    /**
+     * Funcion implementada para el boton de entrada
+     * 
+     */
     public function fichajeEntrada($id)
     {
         
         $asistencia = new AsistenciaModel();
-        $asistencia->id_usuario = $id;
-        $asistencia->Fecha_entrada = date('Y-m-d H:i:s');
-        $asistencia->Fecha_salida =  null;
-        $asistencia->validacion = 0;
-        $asistencia-> save();
+        $asistencia->id_usuario = $id;//obtengo id del usuario
+        $asistencia->Fecha_entrada = date('Y-m-d H:i:s');//ponemos campo a valor de fecha actual
+        $asistencia->Fecha_salida =  null;//salida a null
+        $asistencia->validacion = 0;//validacion a 0
+        $asistencia-> save();//guardamos en la bd
         $usuario = UsuarioModel::find($id);
 
         $asistencias = $usuario->asistencias()->get();
-        return view('registro', ["asistencias"=> $asistencias]);
+        return view('registro', ["asistencias"=> $asistencias]);//muestro las asistencias del usuario en registro
         
     }
 

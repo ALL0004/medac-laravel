@@ -11,11 +11,11 @@
     <form action="{{url('updateCentro')}}/{{$id_sede}}" method="post">
         @csrf
         <label for="id_sede"></label>
-        <input type="text" name="id_sede" value="{{ $id_sede }}">
+        <p>ID: {{ $id_sede }}</p>
         <label for="sector"></label>
-        <input type="text" name="sector" value="{{ $sector->sector }}">
+        <p>Sector: </p><input type="text" name="sector" value="{{ $sector->sector }}">
         <label for="localizacion"></label>
-        <input type="text" name="localizacion" value="{{ $sector->localizacion }}">
+        <p>Localización: </p><input type="text" name="localizacion" value="{{ $sector->localizacion }}">
         <input type="submit" >
     </form>
 </body>

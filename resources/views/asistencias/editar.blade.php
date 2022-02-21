@@ -10,20 +10,20 @@
     
     <form action="{{url('updateAsistencia')}}/{{$registroeditable -> id_asistencia}}" method="post">
         @csrf
-        <label for="id_asistencia"></label>
-        <input type="text" name="id_asistencia" value="{{ $registroeditable->id_asistencia }}">
-        <label for="name"></label>
+        <label for="id_asistencia">ID:{{ $registroeditable->id_asistencia }}</label>
+      
+        <br><label for="Fecha_entrada">Fecha Entrada</label>
         <input type="datetime-local" name="Fecha_entrada" value="{{ date('Y-m-d\Th:m:s', strtotime($registroeditable->Fecha_entrada)) }}">
-        <label for="Fecha_salida"></label>
+        <br><label for="Fecha_salida">Fecha Salida</label>
         <input type="datetime-local" name="Fecha_salida" value="{{ date('Y-m-d\Th:m:s', strtotime($registroeditable->Fecha_salida)) }}">
-        <label for="id_sede"></label>
+        <br><label for="validacion">Validación</label>
         <input type="number" name="validacion" value="{{ $registroeditable ->validacion}}">
         
-        <label for="id_usuario"></label>
+        <br><label for="id_usuario">ID_Usuario</label>
         <input type="text" name="id_usuario" value="{{ $registroeditable->id_usuario }}">
 
 
-        <input type="submit" >
+        <br><input type="submit" >
     </form>
 </body>
 </html>

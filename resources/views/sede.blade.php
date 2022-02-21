@@ -10,12 +10,13 @@
                 <div class="imagen">
                     
                     </br>
+                    <!--  -->
                     <h3>Sede: {{$sede -> id_sede}}</h3>
                     <p><b>Sector: {{$sede -> sector}}</b></p>
                     <p><b>Localización: {{$sede -> localizacion}} </b></p>
                     
                     </br>
-                    
+                    <!--boton para ir atras, ruta.  -->
                     <a href="{{URL::asset("usuario/".$_SESSION['usuario']->id_usuario)}}" class="btn btn-light" role="button">Volver a usuario</a>
                     @if($sede->localizacion!="")
                     <div class="mapouter">
