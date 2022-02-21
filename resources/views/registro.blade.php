@@ -26,28 +26,39 @@
                         </tr>
                     </thead>
                     <tbody>
+                    @if ($asistencias->count())
                         @foreach($asistencias as $asistencia) 
                         <tr style="cursor:pointer">
-                            <td>{{$asistencia -> id_asistencia}}</td>
-                            <td>{{$asistencia -> Fecha_entrada}}</td>
-                            <td>{{$asistencia -> Fecha_salida}}</td>
-                            <td>{{$asistencia -> validacion}}</td>
+                            <td>{{$asistencia->id_asistencia}}</td>
+                            <td>{{$asistencia->Fecha_entrada}}</td>
+                            <td>{{$asistencia->Fecha_salida}}</td>
+                            <td>{{$asistencia->validacion}}</td>
+                       
                         </tr>
                             @endforeach
+                    @else
+                            <div class="alert alert-warning" role="alert">
+                               No hay fichajes actualmente
+                              </div>
+                    @endif
                     </tbody>
                 </div>
             </table>
 
         </div>
             <!--Meto los botones --> 
+            
             <div class="btn-group">
-                @if (!$asistencia->Fecha_salida==null)
+                @if ($asistencias->count())
+                    @if (!$asistencia->Fecha_salida==null)
                     
-                <a href={{URL::asset("ficharEntrada/".$_SESSION['usuario']->id_usuario)}} class="btn btn-light" role="button">Fichar entrada</a>
+                        <a href={{URL::asset("ficharEntrada/".$_SESSION['usuario']->id_usuario)}} class="btn btn-light" role="button">Fichar entrada</a>
+                    @else
+                        <a href={{URL::asset("ficharSalida/".$_SESSION['usuario']->id_usuario)}} class="btn btn-light" role="button">Fichar salida</a>
+                    @endif
                 @else
-                <a href={{URL::asset("ficharSalida/".$_SESSION['usuario']->id_usuario)}} class="btn btn-light" role="button">Fichar salida</a>
+                <a href={{URL::asset("ficharEntrada/".$_SESSION['usuario']->id_usuario)}} class="btn btn-light" role="button">Fichar entrada</a>
                 @endif
-              
             </div>
             
       

@@ -20,5 +20,8 @@ public function obtenerUsuario($cod){
     return UsuarioModel::find($cod);
 }
 
+public function asistencias(){
+    return $this->hasMany(AsistenciaModel::class,'id_usuario');
+}
 
 }

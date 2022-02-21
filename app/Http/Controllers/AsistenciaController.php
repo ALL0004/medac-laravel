@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\AsistenciaModel;
-
+use App\Models\UsuarioModel;
 class AsistenciaController extends Controller
 {
     protected $asistenciaModel;
@@ -124,7 +124,9 @@ class AsistenciaController extends Controller
         $asistencia->Fecha_salida =  null;
         $asistencia->validacion = 0;
         $asistencia-> save();
-        $asistencias = $this->asistenciaModel->obtenerPorUsuario($id);
+        $usuario = UsuarioModel::find($id);
+
+        $asistencias = $usuario->asistencias()->get();
         return view('registro', ["asistencias"=> $asistencias]);
         
     }
